@@ -47,6 +47,7 @@ class JSONProvider(GObject.GObject, GtkSource.CompletionProvider):
             buf.move_mark(mark, start)
 
     def get_proposals(self, code, lang, word):
+        print 'getting proposals for %s' % lang
         proposals = []
 
         # Get global static proposals
@@ -117,7 +118,7 @@ class JSONProvider(GObject.GObject, GtkSource.CompletionProvider):
         if lang in self._libs:
             return self._libs[lang]
         else:
-            path = os.path.join( self._plugin.get_install_dir(), 'codecompletion', 'lib', "%s.json"%(lang) )
+            path = os.path.join( self._plugin.plugin_info.get_module_dir(), 'codecompletion', 'lib', "%s.json"%(lang) )
 
             if not os.path.isfile(path):
                 return { "statics": "", "dynamic": {} }

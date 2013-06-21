@@ -28,6 +28,7 @@ class JSONCompletionWindowHelper:
         for view in self._window.get_views():
             self.add_view(view)
 
+        print "adding handlers"
         self._tab_added_id = self._window.connect('tab-added', self.on_tab_added)
         self._tab_removed_id = self._window.connect('tab-removed', self.on_tab_removed)
 
@@ -46,6 +47,7 @@ class JSONCompletionWindowHelper:
         pass
 
     def add_view(self, view):
+        print "adding view"
         view.get_completion().add_provider(self._provider)
 
     def remove_view(self, view):
@@ -69,6 +71,7 @@ class JSONCompletionPlugin(GObject.Object, Gedit.WindowActivatable):
 
 
     def do_activate(self):
+        print "activating JSONComplete"
         helper = JSONCompletionWindowHelper(self, self.window)
         window.set_data(self.WINDOW_DATA_KEY, helper)
 
