@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python
+Module=codecompletion
+IAge=3
+Name=Code Completion
+Description=A code completion framework based on a json library.
+Authors=Fabio Zendhi Nagao <nagaozen@hotmail.com>\nR.J. Aquino <rj@cs.harvard.edu>
+Copyright=Copyright © 2011 Fabio Zendhi Nagao, R.J. Aquino, CS50
+Website=http://github.com/nagaozen/gedit-plugin-codecompletion/
